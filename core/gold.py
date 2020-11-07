@@ -21,4 +21,4 @@ def Gold_Corrent_Prise(config):
     """
 
     CorrentPrice = Regex.findall(config["Gold"]["regex"], SoupData[0].text)[0]
-    return CorrentPrice
+    return CorrentPrice.replace(',', "")
