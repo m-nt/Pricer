@@ -6,6 +6,7 @@
   },
 
   "Gold": {
-    "url": "https://www.tgju.org/profile/irec_future"
+    "url": "https://www.tgju.org/profile/irec_future",
+    "regex": "نرخ فعلی\n([0-9,]*)"
   }
 }
