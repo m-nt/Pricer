@@ -4,9 +4,20 @@
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     "scheme": "https"
   },
-
-  "Gold": {
-    "url": "https://www.tgju.org/profile/irec_future",
+  "url": "https://www.tgju.org/",
+  "reg": {
     "rgx_corrent": "نرخ فعلی\n([0-9,]*)"
+  },
+  "GoldCoin": {
+    "url": "profile/irec_future"
+  },
+  "Gold18": {
+    "url": "profile/geram18"
+  },
+  "Gold24": {
+    "url": "profile/geram24"
+  },
+  "USD": {
+    "url": "profile/price_dollar_rl"
   }
 }

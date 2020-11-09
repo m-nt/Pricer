@@ -9,7 +9,7 @@ class Data():
         self.object = {}
 
     def update(self):
-        Cp = self.content
+        Cp = self.content.Update()
 
         if Cp != self.corrent:
             self.corrent = Cp
