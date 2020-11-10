@@ -9,13 +9,14 @@ class Data():
         self.object = {}
 
     def update(self):
-        Cp = self.content.Update()
+        Cp, name = self.content.Update()
 
         if Cp != self.corrent:
             self.corrent = Cp
 
         cdate, ctime = self.time_date()
         self.object = {
+            "name": name,
             "corrent": self.corrent,
             "date": cdate,
             "corrent_time": ctime

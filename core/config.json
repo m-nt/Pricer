@@ -9,15 +9,39 @@
     "rgx_corrent": "نرخ فعلی\n([0-9,]*)"
   },
   "GoldCoin": {
+    "name": "سکه فردایی",
     "url": "profile/irec_future"
   },
   "Gold18": {
+    "name": "طلای 18 عیار",
     "url": "profile/geram18"
   },
   "Gold24": {
+    "name": "طلای 24 عیار",
     "url": "profile/geram24"
   },
   "USD": {
+    "name": "دلار آمریکا",
     "url": "profile/price_dollar_rl"
+  },
+  "EUR": {
+    "name": "یورو",
+    "url": "profile/price_eur"
+  },
+  "AED_sana": {
+    "name": "درهم",
+    "url": "profile/sana_sell_aed"
+  },
+  "INR_sana": {
+    "name": "روپیه هند",
+    "url": "profile/sana_sell_aed"
+  },
+  "CNY": {
+    "name": "یوان چین",
+    "url": "profile/price_cny"
+  },
+  "CHF": {
+    "name": "فرانک سوئیس",
+    "url": "profile/price_chf"
   }
 }

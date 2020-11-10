@@ -37,7 +37,7 @@ class Scraper:
 
         CorrentPrice = Regex.findall(
             config["reg"][self.rgx], SoupData[0].text)[0]
-        return CorrentPrice
+        return (CorrentPrice, config[self.name]["name"])
 
     def Initialize_request(self):
         url = config["url"]+config[self.name]["url"]

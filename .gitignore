@@ -2,3 +2,4 @@ core/output
 core/__pycache__
 core/test
 core/test.py
+conf.json
