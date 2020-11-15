@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 //MongoDB URL
-const URL = require("../conf.json").MongoURL;
+const URL = require("../conf.json").MongoUsersURL;
 const Options = require("../conf.json").MongoOptions;
 
 //mongose connection
@@ -20,6 +20,7 @@ mongose
 //EJS engine setup
 app.use(expressLayout);
 app.set("view engine", "ejs");
+app.use(express.static("./public"));
 
 //Routes set up
 app.use("/", require("./routes/index"));
