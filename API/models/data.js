@@ -18,6 +18,6 @@ const dataschema = new mongoose.Schema({
   },
 });
 
-const data = mongoose.model("data", dataschema, "Currency");
-
-module.exports = data;
+const dataCurrency = mongoose.model("Currency", dataschema, "Currency");
+const dataGold = mongoose.model("Gold", dataschema, "Gold");
+module.exports = { Currency: dataCurrency, Gold: dataGold };

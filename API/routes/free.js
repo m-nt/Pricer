@@ -5,20 +5,39 @@ const jdate = new Jdate();
 const Time = require("../models/time");
 const time = new Time(true, true);
 
-const data = require("../models/data");
+const { Currency, Gold } = require("../models/data");
+
 //${jdate.date[0]}/${jdate.date[1]}/${jdate.date[2]}
-router.get("/", (req, res) => {
+
+router.get("/Currency", (req, res) => {
   time.update();
-  console.log(time.Ftime);
-  data
-    .find({
-      date: `${jdate.date[0]}/${jdate.date[1]}/${jdate.date[2]}`,
-      corrent_time: {
-        $regex: `^${time.Ftime}`,
-      },
+  Currency.find({
+    date: `${jdate.date[0]}/${jdate.date[1]}/${jdate.date[2]}`,
+    corrent_time: {
+      $regex: `^${time.Ftime}`,
+    },
+  })
+    .then((_data) => {
+      res.send(_data.slice(0, 5));
     })
-    .then((_data) => res.send(_data.slice(0, 5)))
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      res.sendStatus(404);
+    });
 });
 
+router.get("/Gold", (req, res) => {
+  time.update();
+  Gold.find({
+    date: `${jdate.date[0]}/${jdate.date[1]}/${jdate.date[2]}`,
+    corrent_time: {
+      $regex: `^${time.Ftime}`,
+    },
+  })
+    .then((_data) => {
+      res.send(_data.slice(0, 3));
+    })
+    .catch((err) => {
+      res.sendStatus(404);
+    });
+});
 module.exports = router;

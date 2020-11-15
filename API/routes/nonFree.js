@@ -3,7 +3,6 @@ const Jdate = require("jalali-date");
 const router = express.Router();
 const jdate = new Jdate();
 
-console.log(jdate.date);
 const data = require("../models/data");
 
 router.get("/", (req, res) => {
