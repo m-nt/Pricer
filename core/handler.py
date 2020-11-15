@@ -10,7 +10,7 @@ with open('./conf.json') as json_data:
     config = json.load(json_data)
 
 # Mongodb client and collections
-client = MongoClient(config["MongoURL"])
+client = MongoClient(config["MongoDataURL"])
 goldColl = client.Price.Gold
 currColl = client.Price.Currency
 
@@ -53,7 +53,6 @@ if __name__ == "__main__":
             CHF.object
         ])
 
-        # 30 recorde of every currency per day
-        time.sleep(120)
+        time.sleep(30)
 
         # print(USD.object)

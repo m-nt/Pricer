@@ -13,7 +13,7 @@
     padding: 0.5rem 1rem !important;
   }
 }
-@media (max-width: 1900px) {
+@media (max-width: 1800px) {
   .container,
   .container-lg,
   .container-md,
@@ -22,6 +22,7 @@
     max-width: 2000px !important;
   }
 }
+
 @media (max-width: 1200px) {
   .container,
   .container-lg,
@@ -40,16 +41,16 @@
     max-width: 1200px !important;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
   .container,
   .container-lg,
   .container-md,
   .container-sm,
   .container-xl {
-    max-width: 1900px !important;
+    max-width: 920px !important;
   }
 }
-@media (max-width: 992px) {
+@media (max-width: 576px) {
   .container,
   .container-lg,
   .container-md,
