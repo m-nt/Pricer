@@ -15,6 +15,16 @@ mongoose
   .then(() => console.log(`mongoose conected to Data Base...`))
   .catch((err) => console.log(err));
 
+//Access origins
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "localhost:8080");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 app.use("/free", require("./routes/free"));
 app.use("/", require("./routes/nonFree"));
 
