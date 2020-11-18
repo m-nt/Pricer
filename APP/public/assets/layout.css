@@ -1,5 +1,5 @@
 .partin {
-  padding-top: 70px;
+  padding-top: 80px;
 }
 .partin .right {
   background-color: rgba(124, 124, 124, 0.274);
@@ -58,4 +58,12 @@
   .container-xl {
     max-width: 960px !important;
   }
+}
+
+.jb{
+  height: 500px;
+}
+.jj{
+  overflow: auto;
+  height: 100%;
 }
