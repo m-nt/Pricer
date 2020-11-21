@@ -3,11 +3,18 @@ const Jdate = require("jalali-date");
 const router = express.Router();
 const jdate = new Jdate();
 
-const data = require("../models/data");
+const { Currency, Gold } = require("../models/data");
 
 router.get("/", (req, res) => {
-  freedata = data.findOne({ data: `${jdate[0]}/${jdate[1]}/${jdate[2]}` });
-  res.send(freedata);
+  freedata = Gold.findOne({ date: `${jdate.date[0]}/${jdate.date[1]}/${jdate.date[2]}` })
+    .then((data => {
+      res.send(data);
+    }))
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(404)
+    });
+
 });
 
 module.exports = router;

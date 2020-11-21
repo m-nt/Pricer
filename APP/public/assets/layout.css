@@ -67,3 +67,18 @@
   overflow: auto;
   height: 100%;
 }
+.lgjb{
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  height: 500px;
+  width: 400px;
+}
+.lgjj{
+  overflow: auto;
+  height: 100%;
+}
+.line{
+  border: rgb(13, 59, 80) solid;
+  border-width: 1px;
+}

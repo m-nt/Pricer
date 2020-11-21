@@ -1,27 +1,35 @@
 
-setTimeout(() => {
-  $("document").ready(() => {
-    $.get('http://localhost:5000/free/currency', (data, status) => {
-      data.forEach(item => set(item))
-    })
-    $.get('http://localhost:5000/free/gold', (data, status) => {
-      data.forEach(item => set(item))
-    })
-  })
-}, 1000)
+if (window.location.href === "http://localhost:8080/") {
+  FreeFeed()
+}
 
 
-setInterval(() => {
-  $("document").ready(() => {
-    //$("#data").append("hello mother fucker");
-    $.get('http://localhost:5000/free/currency', (data, status) => {
-      data.forEach(item => set(item))
+function FreeFeed() {
+
+  setTimeout(() => {
+    $("document").ready(() => {
+      $.get('http://localhost:5000/free/currency', (data, status) => {
+        data.forEach(item => set(item))
+      })
+      $.get('http://localhost:5000/free/gold', (data, status) => {
+        data.forEach(item => set(item))
+      })
     })
-    $.get('http://localhost:5000/free/gold', (data, status) => {
-      data.forEach(item => set(item))
-    })
-  });
-}, 30000);
+  }, 500)
+
+
+  setInterval(() => {
+    $("document").ready(() => {
+      //$("#data").append("hello mother fucker");
+      $.get('http://localhost:5000/free/currency', (data, status) => {
+        data.forEach(item => set(item))
+      })
+      $.get('http://localhost:5000/free/gold', (data, status) => {
+        data.forEach(item => set(item))
+      })
+    });
+  }, 30000);
+}
 
 function set(item) {
   switch (item.name) {
