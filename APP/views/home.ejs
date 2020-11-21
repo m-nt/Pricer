@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Currency price API</a>
+  <a class="navbar-brand" href="http://localhost:8080">Currency price API</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,101 +8,103 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home
+        <a class="nav-link" href="http://localhost:8080">Home
           <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Dashboard</a>
+        <a class="nav-link" href="http://localhost:8080/Dashboard">Dashboard</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Purchase</a>
+        <a class="nav-link" href="http://localhost:8080/users/purchase">Purchase</a>
       </li>
     </ul>
-    <a class="nav-link" href="#">Login/Register</a>
+    <a class="nav-link" href="http://localhost:8080/users/lgrg">Login/Register</a>
   </div>
 </nav>
 <div class="row partin">
-  <div class="col-lg-8 jb">
-    <div class="jumbotron jj">
+  <div class="col-lg-8 ">
+    <div class="jumbotron jbh">
       <h3>Corrent currency data</h3>
-      <table class="table table-hover">
-        <thead>
-          <tr class="table-primary">
-            <th scope="col">Gold</th>
-            <th scope="col">Corrent Price</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Gold18</th>
-            <td id="g18p">-</td>
-            <td id="g18d">-</td>
-            <td id="g18t">-</td>
-          </tr>
-          <tr class="table-secondary">
-            <th scope="row">Gold24</th>
-            <td id="g24p">-</td>
-            <td id="g24d">-</td>
-            <td id="g24t">-</td>
-          </tr>
-          <tr>
-            <th scope="row">Golden coin(future)</th>
-            <td id="gcp">-</td>
-            <td id="gcd">-</td>
-            <td id="gct">-</td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table table-hover">
-        <thead>
-          <tr class="table-primary">
-            <th scope="col">Currency</th>
-            <th scope="col">Corrent Price</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">USD(دلار آمریکا)</th>
-            <td id="usdp">-</td>
-            <td id="usdd">-</td>
-            <td id="usdt">-</td>
-          </tr>
-          <tr class="table-secondary">
-            <th scope="row">EUR(یورو)</th>
-            <td id="eurp">-</td>
-            <td id="eurd">-</td>
-            <td id="eurt">-</td>
-          </tr>
-          <tr>
-            <th scope="row">AED_sana(درهم)</th>
-            <td id="aedp">-</td>
-            <td id="aedd">-</td>
-            <td id="aedt">-</td>
-          </tr>
+      <div class="jjm">
+        <table class="table table-hover">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">Gold</th>
+              <th scope="col">Corrent Price</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Gold18</th>
+              <td id="g18p">-</td>
+              <td id="g18d">-</td>
+              <td id="g18t">-</td>
+            </tr>
+            <tr class="table-secondary">
+              <th scope="row">Gold24</th>
+              <td id="g24p">-</td>
+              <td id="g24d">-</td>
+              <td id="g24t">-</td>
+            </tr>
+            <tr>
+              <th scope="row">Golden coin(future)</th>
+              <td id="gcp">-</td>
+              <td id="gcd">-</td>
+              <td id="gct">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-hover">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">Currency</th>
+              <th scope="col">Corrent Price</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">USD(دلار آمریکا)</th>
+              <td id="usdp">-</td>
+              <td id="usdd">-</td>
+              <td id="usdt">-</td>
+            </tr>
+            <tr class="table-secondary">
+              <th scope="row">EUR(یورو)</th>
+              <td id="eurp">-</td>
+              <td id="eurd">-</td>
+              <td id="eurt">-</td>
+            </tr>
+            <tr>
+              <th scope="row">AED_sana(درهم)</th>
+              <td id="aedp">-</td>
+              <td id="aedd">-</td>
+              <td id="aedt">-</td>
+            </tr>
 
-          <tr class="table-secondary">
-            <th scope="row">CNY(یوان چین)</th>
-            <td id="cnyp">-</td>
-            <td id="cnyd">-</td>
-            <td id="cnyt">-</td>
-          </tr>
-          <tr>
-            <th scope="row">CHF(فرانک سوئیس)</th>
-            <td id="chfp">-</td>
-            <td id="chfd">-</td>
-            <td id="chft">-</td>
-          </tr>
-        </tbody>
-      </table>
+            <tr class="table-secondary">
+              <th scope="row">CNY(یوان چین)</th>
+              <td id="cnyp">-</td>
+              <td id="cnyd">-</td>
+              <td id="cnyt">-</td>
+            </tr>
+            <tr>
+              <th scope="row">CHF(فرانک سوئیس)</th>
+              <td id="chfp">-</td>
+              <td id="chfd">-</td>
+              <td id="chft">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-  <div class="col-lg-4 jb">
-    <div class="jumbotron jj">
+  <div class="col-lg-4 ">
+    <div class="jumbotron ">
       <ul class="nav nav-tabs">
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#About">About</a>
@@ -112,8 +114,8 @@
         </li>
 
       </ul>
-      <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade show active" id="About">
+      <div id="myTabContent" class="tab-content jb">
+        <div class="tab-pane fade show active jj" id="About">
           <p>
             Raw denim you probably haven't heard of them jean shorts Austin.
             Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
@@ -124,7 +126,7 @@
             voluptate nisi qui.
           </p>
         </div>
-        <div class="tab-pane fade" id="Reference">
+        <div class="tab-pane fade jj" id="Reference">
           <p>
             Food truck fixie locavore, accusamus mcsweeney's marfa nulla
             single-origin coffee squid. Exercitation +1 labore velit, blog

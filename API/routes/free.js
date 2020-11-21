@@ -18,7 +18,7 @@ router.get("/Currency", (req, res) => {
     },
   })
     .then((_data) => {
-      res.send(_data.slice(0, 5));
+      res.json(_data.slice(0, 5));
     })
     .catch((err) => {
       res.sendStatus(404);
@@ -34,7 +34,7 @@ router.get("/Gold", (req, res) => {
     },
   })
     .then((_data) => {
-      res.send(_data.slice(0, 3));
+      res.json(_data.slice(0, 3));
     })
     .catch((err) => {
       res.sendStatus(404);

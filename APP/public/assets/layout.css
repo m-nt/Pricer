@@ -61,11 +61,19 @@
 }
 
 .jb{
-  height: 500px;
+  height: 400px;
+}
+.jbh{
+  height: 475px;
 }
 .jj{
   overflow: auto;
   height: 100%;
+}
+.jjm{
+  overflow: auto;
+  height: 85%;
+  
 }
 .lgjb{
   position: relative;
