@@ -7,4 +7,7 @@ router.get("/lgrg", (req, res) => {
 router.get("/purchase", (req, res) => {
   res.render("purchase");
 });
+router.get("/query", (req, res) => {
+  res.render("purchase");
+});
 module.exports = router;

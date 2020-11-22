@@ -23,7 +23,41 @@
     </div>
 </nav>
 <div class="row partin">
-    <div class="col-lg-8 jb"></div>
+    <div class="col-lg-8 jb">
+        <div class="jumbotron">
+            <h1 class="display-3">API detailes</h1>
+            <p class="lead">Use this method to get the data from server</p>
+            <hr class="my-4">
+            <h4 class="display-6">Body of POST request:</h4>
+            <pre style="color:#18bc9c;">
+body:
+{
+    key:your key, //required
+    name:currency name, //required
+    date:YYYY/M/D, //not required
+    between:YYYY/M/DtoYYYY/M/D, //not required
+}</pre>
+            <hr class="my-4">
+            <h4 class="display-6">Key:</h4>
+            <pre style="color:#18bc9c;">your RSA Key, for getting your key just submit on button down below.</pre>
+            <form>
+                <button style="margin-bottom: 20px;" type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="exampleTextarea">RSA Key:</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="3"
+                        style="margin-top: 0px; margin-bottom: 0px; height: 83px;"></textarea>
+                </div>
+
+            </form>
+            <hr class="my-4">
+            <h4 class="display-6">Date:</h4>
+            <pre style="color:#18bc9c;margin-bottom: 20px;">this is a date format, for example: 1399/9/9.</pre>
+            <hr class="my-4">
+            <h4 class="display-6">Between:</h4>
+            <pre
+                style="color:#18bc9c;margin-bottom: 20px;">for cropping data between two date, for example: 1399/9/9to1399/8/3.</pre>
+        </div>
+    </div>
     <div class="col-lg-4 ">
         <div class="jumbotron ">
             <ul class="nav nav-tabs">
