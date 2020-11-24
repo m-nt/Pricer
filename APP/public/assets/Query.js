@@ -11,8 +11,16 @@ setTimeout(() => {
       }, (data, status) => {
         if (data.redirect) {
           window.location.href = data.redirect
+          warning = data.warning
+          if (warning) {
+            let len = warning.length
+            for (let i = 0; i < len; i++) {
+              error(warning[i].massage, "warning")
+            }
+          }
         } else {
           errors = data.errors
+
           $("#RegisterUser").val(data.Username)
           $("#RegisterEmail").val(data.Email)
           $("#RegisterPassword").val(data.Password)
@@ -29,7 +37,7 @@ setTimeout(() => {
 
     })
   })
-}, 100)
+}, 300)
 
 
 setTimeout(() => {

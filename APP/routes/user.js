@@ -82,6 +82,7 @@ router.post("/register", (req, res) => {
           .then((salt) => {
             bcrypt.hash(NewUser.Password, salt)
               .then((hash) => {
+                console.log(NewUser.Password);
                 NewUser.Password = hash
                 bcrypt.genSalt(15)
                   .then((salt) => {
@@ -90,7 +91,7 @@ router.post("/register", (req, res) => {
                         NewUser.RSA = hash
                         NewUser.save()
                           .then((user) => {
-                            res.send({ redirect: "http://localhost:8080/users/lgrg?massage=register successfully done" });
+                            res.send({ redirect: "http://localhost:8080/users/lgrg?massage=register successfully done", warning: warning });
                           }).catch((err) => console.log(err))
                       }).catch((err) => console.log(err))
                   }).catch((err) => console.log(err))
@@ -111,8 +112,11 @@ function mlen(regex, text) {
 }
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/dashboard",
-    failureRedirect: "/users/lgrg?error=login failed, ensure username and password is correct !",
+    successRedirect: "http://localhost:8080/dashboard",
+    failureRedirect: "/users/lgrg?error=username or password is incorrect !",
+    failureFlash: false,
   })(req, res, next);
+  console.log("its after /login post");
 });
+
 module.exports = router;

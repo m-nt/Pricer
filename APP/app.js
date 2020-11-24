@@ -7,18 +7,19 @@ const passport = require("passport");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-//passport config
-require("./config/passport")(passport)
-
 //MongoDB URL
 const URL = require("../conf.json").MongoUsersURL;
 const Options = require("../conf.json").MongoOptions;
 
+//passport config
+require("./config/passport")(passport)
 //mongose connection
 mongose
   .connect(URL, Options)
   .then(() => console.log(`mongoose conected to Data Base...`))
   .catch((err) => console.log(err));
+
+
 
 //EJS engine setup
 app.use(expressLayout);

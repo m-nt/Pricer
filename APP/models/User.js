@@ -19,11 +19,11 @@ const UserSchema = new mongoose.Schema({
         required: true,
     },
     Date: {
-        type: Date,
+        type: String,
         default: Jdate.Update(),
     }
 })
 
-const User = mongoose.model("Users", UserSchema)
+const User = mongoose.model("User", UserSchema)
 
 module.exports = User
