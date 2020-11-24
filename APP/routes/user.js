@@ -12,9 +12,10 @@ router.get("/purchase", (req, res) => {
 });
 router.post("/register", (req, res) => {
   const { Username, Email, Password, CPassword } = req.body
+
   const errors = []
   const warning = []
-  const strength = 0
+  let strength = 0
   if (!Username || !Email || !Password || !CPassword) {
     errors.push({ massage: "please fill in all the required fields !" })
   }
@@ -50,8 +51,8 @@ router.post("/register", (req, res) => {
       warning.push({ massage: "Great, Strong Passwords !" })
       break;
   }
-  if (error.length > 0) {
-    res.render("loginRegister", {
+  if (errors.length > 0) {
+    res.send({
       errors,
       Username,
       Email,
@@ -59,10 +60,10 @@ router.post("/register", (req, res) => {
       CPassword
     })
   } else {
-    User.findOne({ Email: Email }).then((user) => {
+    User.findOne({ $or: [{ Email: Email }, { Username: Username }] }).then((user) => {
       if (user) {
-        errors.push({ massage: "Email is already registered, try log in" })
-        res.render("register", {
+        errors.push({ massage: "Email or Username is already registered, try login" })
+        res.send({
           errors,
           Username,
           Email,
@@ -70,24 +71,30 @@ router.post("/register", (req, res) => {
           CPassword,
         });
       } else {
+        let RSA = ""
         const NewUser = new User({
           Username,
           Email,
           Password,
-          RSA
+          RSA,
         })
         bcrypt.genSalt(15)
           .then((salt) => {
-            bcrypt.hash(NewUser.Password, salt).then((hash) => {
-              NewUser.Password = hash
-              bcrypt.hash(NewUser.Password + NewUser.Email + NewUser.Username, salt).then((hash) => {
-                NewUser.RSA = hash
-              })
-              NewUser.save().then((user) => {
-                res.redirect("/users/lgrg?msg:register successful");
-              })
-
-            })
+            bcrypt.hash(NewUser.Password, salt)
+              .then((hash) => {
+                NewUser.Password = hash
+                bcrypt.genSalt(15)
+                  .then((salt) => {
+                    bcrypt.hash(NewUser.Email + NewUser.Username, salt)
+                      .then((hash) => {
+                        NewUser.RSA = hash
+                        NewUser.save()
+                          .then((user) => {
+                            res.send({ redirect: "http://localhost:8080/users/lgrg?massage=register successfully done" });
+                          }).catch((err) => console.log(err))
+                      }).catch((err) => console.log(err))
+                  }).catch((err) => console.log(err))
+              }).catch((err) => console.log(err))
           })
           .catch((err) => console.log(err))
       }
@@ -95,12 +102,17 @@ router.post("/register", (req, res) => {
   }
 })
 function mlen(regex, text) {
-  return text.match(regex).length
+  mach = text.match(regex)
+  if (mach) {
+    return mach.length
+  } else {
+    return 0
+  }
 }
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/dashboard",
-    failureRedirect: "/users/login",
+    failureRedirect: "/users/lgrg?error=login failed, ensure username and password is correct !",
   })(req, res, next);
 });
 module.exports = router;

@@ -2,55 +2,58 @@
     <div class="jumbotron lgjj">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#Login">Login</a>
+                <a class="nav-link " data-toggle="tab" href="#Login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#Register">Register</a>
+                <a class="nav-link active" data-toggle="tab" href="#Register">Register</a>
             </li>
 
         </ul>
         <div class="line"></div>
-        <div class="alert">
-            <div class="alert alert-dismissible alert-warning">
+        <div id="alert" class="alert">
+            <div id="temprery" class="alert alert-dismissible alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>field with * is requiered !</strong>
             </div>
         </div>
         <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade show active" id="Login">
-                <form _lpchecked="1">
+            <div class="tab-pane fade" id="Login">
+                <form action="/users/login" method="post">
                     <fieldset>
                         <legend>Login into your dashboard !</legend>
-                        <label for="LoginEmail">Email address*</label>
-                        <input type="email" class="form-control" id="LoginEmail" aria-describedby="emailHelp"
-                            placeholder="email address or username">
+                        <label for="LoginEmail">User*</label>
+                        <input type="text" name="Username" class="form-control" id="LoginEmail"
+                            aria-describedby="emailHelp" placeholder="email address or username">
                         <label for="LoginPassword">Password*</label>
-                        <input type="password" class="form-control" id="LoginPassword" aria-describedby="passwordHelp"
-                            placeholder="your password">
+                        <input type="password" name="Password" class="form-control" id="LoginPassword"
+                            aria-describedby="passwordHelp" placeholder="your password">
                         <legend> </legend>
                         <button type="submit" id="login" class="btn btn-primary">Log in</button>
                     </fieldset>
                 </form>
             </div>
-            <div class="tab-pane fade" id="Register">
-                <fieldset>
-                    <legend>Register right now !</legend>
-                    <label for="RegisterEmail">Email address</label>
-                    <input type="email" class="form-control" id="RegisterEmail" aria-describedby="emailHelp"
-                        placeholder="example: yourname@service.com">
-                    <label for="User">User name*</label>
-                    <input type="email" class="form-control" id="User" aria-describedby="userHelp"
-                        placeholder="Choose a Unique user name">
-                    <label for="RegisterPassword">Password*</label>
-                    <input type="password" class="form-control" id="RegisterPassword" aria-describedby="passwordHelp"
-                        placeholder="at least 8 chars include numbers and symbols">
-                    <label for="CPassword">Confirm Password*</label>
-                    <input type="password" class="form-control" id="CPassword" aria-describedby="CpasswordHelp"
-                        placeholder="repeat the password">
+            <div class="tab-pane fade show active" id="Register">
+                <form id="registering">
+                    <fieldset>
+                        <legend>Register right now !</legend>
+                        <label for="RegisterEmail">Email address</label>
+                        <input type="email" name="Email" class="form-control" id="RegisterEmail"
+                            aria-describedby="emailHelp" placeholder="example: yourname@service.com">
+                        <label for="User">User name*</label>
+                        <input type="text" name="Username" class="form-control" id="RegisterUser"
+                            aria-describedby="userHelp" placeholder="Choose a Unique user name">
+                        <label for="RegisterPassword">Password*</label>
+                        <input type="password" name="Password" class="form-control" id="RegisterPassword"
+                            aria-describedby="passwordHelp" placeholder="at least 8 chars include numbers and symbols">
+                        <label for="CPassword">Confirm Password*</label>
+                        <input type="password" name="CPassword" class="form-control" id="CPassword"
+                            aria-describedby="CpasswordHelp" placeholder="repeat the password">
 
-                    <legend> </legend>
-                    <button type="submit" id="register" class="btn btn-primary">Register</button>
-                </fieldset>
+                        <legend> </legend>
+                        <button type="submit" id="register" class="btn btn-primary">Register</button>
+
+                    </fieldset>
+                </form>
             </div>
 
         </div>
