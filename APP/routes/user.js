@@ -1,8 +1,10 @@
 const express = require("express");
+const proxy = require('express-http-proxy')
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const User = require("../models/User");
 const router = express.Router();
+const { ensureAuthenticated } = require('../config/Auth')
 
 router.get("/lgrg", (req, res) => {
   res.render("loginRegister");
@@ -118,5 +120,21 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
   console.log("its after /login post");
 });
+router.post("/getRSA", ensureAuthenticated, (req, res) => {
+  res.send({ RSA: req.user.RSA })
+})
+router.post("/query", (req, res, next) => {
+  if (!req.body.RSA) {
+    return res.sendStatus(404)
+  }
+  User.findOne({ RSA: req.body.RSA })
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send("Sorry! we couldn't find any user with this RSA.")
+      }
+      next()
+    })
+    .catch(err => console.log(err))
+}, proxy("http://localhost:5000/query"))
 
 module.exports = router;

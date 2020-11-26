@@ -36,6 +36,12 @@ setTimeout(() => {
       })
 
     })
+    $("#submitRSA").submit((event) => {
+      event.preventDefault()
+      $.post("http://localhost:8080/users/getRSA", (data, status) => {
+        $("#exampleTextarea").val(data.RSA)
+      })
+    })
   })
 }, 300)
 
