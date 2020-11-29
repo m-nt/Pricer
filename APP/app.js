@@ -41,7 +41,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/proxy", proxyCheck, proxy('http://localhost:5000/nonfree'))
+app.use("/items", proxyCheck, proxy('http://localhost:5000/query'))
 
 //Routes set up
 app.use("/", require("./routes/index"));

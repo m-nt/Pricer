@@ -73,12 +73,12 @@ router.post("/register", (req, res) => {
           CPassword,
         });
       } else {
-        let RSA = ""
+        let KEY = ""
         const NewUser = new User({
           Username,
           Email,
           Password,
-          RSA,
+          KEY,
         })
         bcrypt.genSalt(15)
           .then((salt) => {
@@ -89,7 +89,7 @@ router.post("/register", (req, res) => {
                   .then((salt) => {
                     bcrypt.hash(NewUser.Email + NewUser.Username, salt)
                       .then((hash) => {
-                        NewUser.RSA = hash
+                        NewUser.KEY = hash
                         NewUser.save()
                           .then((user) => {
                             res.send({ redirect: "http://localhost:8080/users/lgrg?massage=register successfully done", warning: warning });
@@ -118,8 +118,8 @@ router.post("/login", (req, res, next) => {
     failureFlash: false,
   })(req, res, next);
 });
-router.post("/getRSA", ensureAuthenticated, (req, res) => {
-  res.send({ RSA: req.user.RSA })
+router.post("/getKEY", ensureAuthenticated, (req, res) => {
+  res.send({ KEY: req.user.KEY })
 })
 
 

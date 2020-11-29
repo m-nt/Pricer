@@ -36,25 +36,24 @@
 Body:
 {
     key:your key, //required
-    currency name:
-    {
-        currency type, //required
-        date:the date type , //not required
-    },
-    currency name: // next query, result will send exacly like this
-    {
-        currency type, //required
-        date:the date type , //not required
-    },
+    currency name: currency type //required
+    date:the date type (array), //not required
+
+}
+Example:
+{
+    key:hgGUYTGyutggf76gyut76thi // the key, its unique for every user
+    Gold:Gold18 // return the records from Gold section, type Gold18 
+    between:{"date1":[1399,9,9,11,45,0],"date2":[1399,9,8,11,45,0]} // return the recordes from 8th of Azar to 9th of Azar
 }</pre>
             <hr class="my-4">
             <h4 class="display-6">Key:</h4>
             <pre style="color:#18bc9c;">your RSA Key, for getting your key just submit on button down below.</pre>
 
-            <form id="submitRSA" action="/users/getRSA" method="POST">
+            <form id="submitKEY" action="/users/getRSA" method="POST">
                 <button style="margin-bottom: 20px;" type="submit" class="btn btn-primary">Submit</button>
                 <div class="form-group">
-                    <label for="exampleTextarea">RSA Key:</label>
+                    <label for="exampleTextarea">User Key:</label>
                     <textarea class="form-control" id="exampleTextarea" rows="3"
                         style="margin-top: 0px; margin-bottom: 0px; height: 83px;"></textarea>
                 </div>
@@ -62,17 +61,17 @@ Body:
             </form>
             <hr class="my-4">
             <h4 class="display-6">Name:</h4>
-            <pre style="color:#18bc9c;margin-bottom: 20px;">the name of currency, at the moment there is two type of corrency:
-currency: for money [USD,EUR,AED_sana,CNY,CHF] example -> currency:["USD"] , currency:["USD","EUR",...]
-gold: for gold like gold18, gold24, goldencoin example -> gold:["gold18"] , gold:["gold18","gold24",...]</pre>
+            <pre style="color:#18bc9c;margin-bottom: 20px;">the name of currency in Data base, at the moment there is two type of corrency:
+Currency: for money [USD,EUR,AED_sana,CNY,CHF] 
+Gold: for gold like [Gold18, Gold24, GoldCoin]</pre>
             <hr class="my-4">
             <h4 class="display-6">Date:</h4>
             <pre style="color:#18bc9c;margin-bottom: 20px;">this is a date format, for example: [fullYear,Month,DayOfMonth,Hours,Minutes,Seconds].
 if you don't specify this, the result will be the same as home page.
 Expamples :
 
-date:[1399,8,9,14,25,30] // this query will return the result in that minute so you can ignore the second and set 0 for that.
-between:{date1,date2} //date1 and date2 are arrays like date in the previous line.</pre>
+date:{date:array([1399,9,9,16,25,0])} // this query will return the result in that minute so you can ignore the second and set 0 for that.
+between:{date1:[array],date2:[array]} //date1 and date2 are arrays like date in the previous line.</pre>
         </div>
     </div>
     <div class="col-lg-4 ">

@@ -5,6 +5,9 @@ const app = express();
 //Extract port from process environment or manually set
 const PORT = process.env.PORT || 5000;
 
+//Body Parser
+app.use(express.urlencoded({ extended: false }));
+
 //MongoDB URL
 const URL = require("../conf.json").MongoDataURL;
 const Options = require("../conf.json").MongoOptions;
@@ -17,7 +20,7 @@ mongoose
 
 //Access origins
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
