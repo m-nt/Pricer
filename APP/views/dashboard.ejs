@@ -33,12 +33,19 @@
             <hr class="my-4">
             <h4 class="display-6">Body of POST request:</h4>
             <pre style="color:#18bc9c;">
-reqBody:
+Body:
 {
     key:your key, //required
-    name:currency name, //required
-    date:YYYY/M/D, //not required
-    between:YYYY/M/DtoYYYY/M/D, //not required
+    currency name:
+    {
+        currency type, //required
+        date:the date type , //not required
+    },
+    currency name: // next query, result will send exacly like this
+    {
+        currency type, //required
+        date:the date type , //not required
+    },
 }</pre>
             <hr class="my-4">
             <h4 class="display-6">Key:</h4>
@@ -54,12 +61,18 @@ reqBody:
 
             </form>
             <hr class="my-4">
-            <h4 class="display-6">Date:</h4>
-            <pre style="color:#18bc9c;margin-bottom: 20px;">this is a date format, for example: 1399/9/9.</pre>
+            <h4 class="display-6">Name:</h4>
+            <pre style="color:#18bc9c;margin-bottom: 20px;">the name of currency, at the moment there is two type of corrency:
+currency: for money [USD,EUR,AED_sana,CNY,CHF] example -> currency:["USD"] , currency:["USD","EUR",...]
+gold: for gold like gold18, gold24, goldencoin example -> gold:["gold18"] , gold:["gold18","gold24",...]</pre>
             <hr class="my-4">
-            <h4 class="display-6">Between:</h4>
-            <pre
-                style="color:#18bc9c;margin-bottom: 20px;">for cropping data between two date, for example: 1399/9/9to1399/8/3.</pre>
+            <h4 class="display-6">Date:</h4>
+            <pre style="color:#18bc9c;margin-bottom: 20px;">this is a date format, for example: [fullYear,Month,DayOfMonth,Hours,Minutes,Seconds].
+if you don't specify this, the result will be the same as home page.
+Expamples :
+
+date:[1399,8,9,14,25,30] // this query will return the result in that minute so you can ignore the second and set 0 for that.
+between:{date1,date2} //date1 and date2 are arrays like date in the previous line.</pre>
         </div>
     </div>
     <div class="col-lg-4 ">

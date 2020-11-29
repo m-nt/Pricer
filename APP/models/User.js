@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-const Jdate = require("./Date")
-
+const date = require('./Date')
 const UserSchema = new mongoose.Schema({
     Username: {
         type: String,
@@ -19,8 +18,8 @@ const UserSchema = new mongoose.Schema({
         required: true,
     },
     Date: {
-        type: String,
-        default: Jdate.Update(),
+        type: Array,
+        default: date.Update(),
     }
 })
 

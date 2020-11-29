@@ -3,20 +3,13 @@ const Jdate = require("jalali-date");
 const router = express.Router();
 const jdate = new Jdate();
 const Time = require("../models/time");
-const time = new Time(true, true);
 
 const { Currency, Gold } = require("../models/data");
 
 //${jdate.date[0]}/${jdate.date[1]}/${jdate.date[2]}
 
 router.get("/Currency", (req, res) => {
-  time.update();
-  Currency.find({
-    date: `${jdate.date[0]}/${jdate.date[1]}/${jdate.date[2]}`,
-    corrent_time: {
-      $regex: `^${time.Ftime}`,
-    },
-  })
+  Currency.find({ "date": { "$gt": Time.update([0, 0, 0, 0, 1, 0]) } })
     .then((_data) => {
       res.json(_data.slice(0, 5));
     })
@@ -26,13 +19,7 @@ router.get("/Currency", (req, res) => {
 });
 
 router.get("/Gold", (req, res) => {
-  time.update();
-  Gold.find({
-    date: `${jdate.date[0]}/${jdate.date[1]}/${jdate.date[2]}`,
-    corrent_time: {
-      $regex: `^${time.Ftime}`,
-    },
-  })
+  Gold.find({ "date": { "$gt": Time.update([0, 0, 0, 0, 1, 0]) } })
     .then((_data) => {
       res.json(_data.slice(0, 3));
     })

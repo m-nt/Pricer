@@ -84,7 +84,6 @@ router.post("/register", (req, res) => {
           .then((salt) => {
             bcrypt.hash(NewUser.Password, salt)
               .then((hash) => {
-                console.log(NewUser.Password);
                 NewUser.Password = hash
                 bcrypt.genSalt(15)
                   .then((salt) => {
@@ -118,23 +117,10 @@ router.post("/login", (req, res, next) => {
     failureRedirect: "/users/lgrg?error=username or password is incorrect !",
     failureFlash: false,
   })(req, res, next);
-  console.log("its after /login post");
 });
 router.post("/getRSA", ensureAuthenticated, (req, res) => {
   res.send({ RSA: req.user.RSA })
 })
-router.post("/query", (req, res, next) => {
-  if (!req.body.RSA) {
-    return res.sendStatus(404)
-  }
-  User.findOne({ RSA: req.body.RSA })
-    .then((user) => {
-      if (!user) {
-        return res.status(404).send("Sorry! we couldn't find any user with this RSA.")
-      }
-      next()
-    })
-    .catch(err => console.log(err))
-}, proxy("http://localhost:5000/query"))
+
 
 module.exports = router;

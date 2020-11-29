@@ -1,12 +1,19 @@
 const Jdate = require('jalali-date')
 
-class Date {
+class _Date {
     constructor() {
         this.jdate = new Jdate()
     }
     Update() {
         this.jdate = new Jdate()
-        return `${this.jdate.date[0]}/${this.jdate.date[1]}/${this.jdate.date[2]}`
+        let da = new Date()
+        return [
+            this.jdate.date[0],
+            this.jdate.date[1],
+            this.jdate.date[2],
+            da.getHours(),
+            da.getMinutes(),
+            da.getSeconds()]
     }
 }
-module.exports = new Date
+module.exports = new _Date

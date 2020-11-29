@@ -6,7 +6,16 @@ const jdate = new Jdate();
 const { Currency, Gold } = require("../models/data");
 
 router.get("/query", (req, res) => {
-  res.send("its OK")
+  switch (req.body.name) {
+    case "currency":
+
+      break;
+    case "gold":
+
+      break;
+    default:
+      break;
+  }
 
 });
 

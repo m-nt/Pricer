@@ -11,11 +11,9 @@ const dataschema = new mongoose.Schema({
     type: String,
   },
   date: {
-    type: String,
+    type: Array,
   },
-  corrent_time: {
-    type: String,
-  },
+
 });
 
 const dataCurrency = mongoose.model("Currency", dataschema, "Currency");

@@ -1,12 +1,12 @@
 const express = require("express");
 const expressLayout = require("express-ejs-layouts");
 const mongose = require("mongoose");
+const proxy = require('express-http-proxy')
 const session = require("express-session");
 const passport = require("passport");
-
+const proxyCheck = require("./config/proxyCheck")
 const app = express();
 const PORT = process.env.PORT || 8080;
-
 //MongoDB URL
 const URL = require("../conf.json").MongoUsersURL;
 const Options = require("../conf.json").MongoOptions;
@@ -40,6 +40,8 @@ app.use(
 //passport midware
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use("/proxy", proxyCheck, proxy('http://localhost:5000/nonfree'))
 
 //Routes set up
 app.use("/", require("./routes/index"));
