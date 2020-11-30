@@ -42,6 +42,13 @@ setTimeout(() => {
         $("#exampleTextarea").val(data.KEY)
       })
     })
+    $.post("http://localhost:8080/users/getname", (data, status) => {
+      if (data.name) {
+        $("#logwel").text("Welcome " + data.name)
+        $("#logreg").text("log out")
+        $("#logreg").attr("href", "http://localhost:8080/users/logout");
+      }
+    })
   })
 }, 300)
 

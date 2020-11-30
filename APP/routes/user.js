@@ -113,14 +113,26 @@ function mlen(regex, text) {
 }
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "http://localhost:8080/dashboard",
+    successRedirect: "/dashboard",
     failureRedirect: "/users/lgrg?error=username or password is incorrect !",
     failureFlash: false,
   })(req, res, next);
 });
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
 router.post("/getKEY", ensureAuthenticated, (req, res) => {
   res.send({ KEY: req.user.KEY })
 })
+router.post("/getname", ensureAuthenticated, (req, res) => {
+  console.log(req.user);
+  if (req.user) {
+    res.send({ name: req.user.Username })
 
+  } else {
+    res.status(404).send()
+  }
+})
 
 module.exports = router;
