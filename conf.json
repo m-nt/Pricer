@@ -1,0 +1,5 @@
+{
+    "MongoDataURL":"your URI",
+    "MongoUsersURL":"your URI",
+    "MongoOptions":{"useNewUrlParser": true,"useUnifiedTopology": true }
+}

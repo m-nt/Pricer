@@ -5,7 +5,7 @@ import re as Regex
 import time
 
 # take the config file with all regexes and urls and ...
-with open('./core/config.json') as json_data:
+with open('./core/config.json', encoding="utf8") as json_data:
     config = json.load(json_data)
 
 
